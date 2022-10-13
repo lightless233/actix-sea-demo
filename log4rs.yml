@@ -4,7 +4,7 @@ appenders:
     kind: console
     target: stderr
     encoder:
-      pattern: "[{d}][{l}][{f}:{L}] {m}{n}"
+      pattern: "[{M}][{d}][{l}][{f}:{L}] {m}{n}"
   file:
     kind: rolling_file
     policy:
@@ -34,3 +34,5 @@ loggers:
       - stdout
       - file
     additive: false
+  sqlx::query:
+    level: WARN

@@ -5,6 +5,7 @@ use actix_web::middleware::{self, Logger};
 use actix_web::{delete, get, post, put, web, App, HttpServer, Responder};
 use entities::prelude::*;
 use entities::user;
+use log::debug;
 use migrator::Migrator;
 use sea_orm::{
     ActiveModelTrait, ColumnTrait, Database, DatabaseConnection, EntityTrait, IntoActiveModel,
@@ -143,6 +144,8 @@ async fn main() -> std::io::Result<()> {
 
     Migrator::status(&conn).await.unwrap();
     Migrator::up(&conn, None).await.unwrap();
+
+    debug!("111111");
 
     let app_state = AppState { conn };
     HttpServer::new(move || {
