@@ -40,5 +40,4 @@ pub enum User {
     Table,
     Id,
     Name,
-    ProfitMargin,
 }

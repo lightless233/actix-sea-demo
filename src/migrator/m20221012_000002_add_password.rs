@@ -1,7 +1,7 @@
 use log::debug;
-use sea_orm::{DbErr, sea_query, Iden};
-use sea_orm_migration::{MigrationName, MigrationTrait, SchemaManager, async_trait};
+use sea_orm::{sea_query, DbErr, Iden};
 use sea_orm_migration::prelude::{ColumnDef, Table};
+use sea_orm_migration::{async_trait, MigrationName, MigrationTrait, SchemaManager};
 
 // use sea_orm_migration::prelude::*;
 
@@ -47,7 +47,6 @@ impl MigrationTrait for Migration {
 #[derive(Iden)]
 pub enum User {
     Table,
-    Id,
     Name,
     Password,
 }
