@@ -119,7 +119,7 @@ async fn delete_user(
 }
 
 #[post("/edit")]
-async fn edit_user(state: web::Data<AppState>, params: web::Query<UserInfo>) -> impl Responder {
+async fn edit_user(state: web::Data<AppState>, params: web::Json<UserInfo>) -> impl Responder {
     let model = User::find_by_id(params.id).one(&state.conn).await.unwrap();
     let mut model = model.unwrap().into_active_model();
     model.name = Set(params.name.to_owned());
